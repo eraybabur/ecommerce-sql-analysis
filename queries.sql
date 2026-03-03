@@ -27,3 +27,39 @@ round( avg(profit), 2) as avg_profit_per_order
 from ecommerce_sales_data
 GROUP by Region
 order by avg_sales_per_order DESC;
+ ## Monthly Trend ##
+SELECT  strftime('%Y-%m' , "Order Date" ) as month, 
+sum(sales) as total_sales,
+sum(profit) as total_profit,
+round( sum(profit)*1.0/sum(sales),3) as margin
+from ecommerce_sales_data
+group by month
+order by month 
+
+SELECT  strftime('%Y-%m' , "Order Date" ) as month, 
+sum(sales) as total_sales,
+sum(profit) as total_profit,
+round( sum(profit)*1.0/sum(sales),3) as margin
+from ecommerce_sales_data
+group by month
+order by total_sales DESC
+LIMIT 1
+
+SELECT  strftime('%Y-%m' , "Order Date" ) as month, 
+sum(sales) as total_sales,
+sum(profit) as total_profit,
+round( sum(profit)*1.0/sum(sales),3) as margin
+from ecommerce_sales_data
+group by month
+order by total_profit DESC
+LIMIT 1
+
+SELECT  strftime('%Y-%m' , "Order Date" ) as month, 
+sum(sales) as total_sales,
+sum(profit) as total_profit,
+round( sum(profit)*1.0/sum(sales),3) as margin
+from ecommerce_sales_data
+group by month
+order by margin DESC
+LIMIT 1
+
