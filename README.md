@@ -48,3 +48,6 @@ Key Learnings
 
 Implemented month-over-month sales comparison using SQLite window functions 
 (LAG) to measure growth trends over time.
+
+This project represents the first version of the analysis. 
+Additional insights and advanced SQL analysis may be added in future updates.
