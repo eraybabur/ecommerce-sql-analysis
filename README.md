@@ -41,3 +41,10 @@ Key Learnings
 - Calculated total sales, total profit, and monthly profit margin.
 - Identified the highest-margin month (December 2023, ~20%).
 - Observed that peak sales and peak profitability do not always coincide.
+
+
+
+## Month-over-Month Growth Analysis
+
+Implemented month-over-month sales comparison using SQLite window functions 
+(LAG) to measure growth trends over time.
