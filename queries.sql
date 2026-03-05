@@ -63,3 +63,18 @@ group by month
 order by margin DESC
 LIMIT 1
 
+SELECT
+month,
+total_sales,
+lag(total_sales)  OVER(order by month) as prev_month_sales,
+total_sales - lag(total_sales)  OVER(order by month) as mom_change, 
+round( (total_sales - lag(total_sales)  OVER( order by month) )*1.0/ nullif(lag(total_sales) OVER( order by month),0) ,3) as mom_change_pct
+FROM
+(SELECT 
+strftime('%Y-%m' , "Order Date") as month,
+sum(Sales) as total_sales
+from ecommerce_sales_data
+group by month ) 
+order by month
+
+
